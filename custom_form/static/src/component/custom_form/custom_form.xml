@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="custom_form._CustomForm" owl="1">
+        <div class="custom_form_wrap p-2">
+
+            <div class="filter_section pt-1 p-2">
+                <div class="d-flex flex-row flex-wrap pt-1">
+                    <t t-foreach="fieldList" t-as="field" t-key="field.name">
+                    <div class="col-4 d-flex flex-row field-box px-2 ">
+                        <div class="col-3 text-break text-900 field-box-label">
+                            <span t-esc="field.string"></span>
+                        </div>
+                        <div class="col-9 text-break field-box-body">
+                            <Field
+                                t-props="getFieldProps(field.name)"
+                            />
+                        </div>
+                    </div>
+                    </t>
+                </div>
+            </div>
+
+            <div t-if="props.component" class="screen_section mt-3 p-2">
+                <t t-component="props.component" t-props="customScreenProps"></t>
+            </div>
+
+        </div>
+    </t>
+
+    <t t-name="custom_form.CustomForm" owl="1">
+        <_CustomForm
+            fields="fields"
+            model="props.modelName"
+            component="props.component"
+        />
+    </t>
+</templates>

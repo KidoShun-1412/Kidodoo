@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="custom_dashboard.MyCustomDashboard" owl="1">
+        <CustomForm
+            fields="fields"
+            modelName="modelName"
+            component="propComponent"
+        />
+    </t>
+
+    <t t-name="custom_dashboard.CustomDashboardScreen" owl="1">
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <t t-foreach="displayFieldValues" t-as="field" t-key="field_index">
+                        <th><span t-esc="field"></span></th>
+                    </t>
+                </tr>
+
+            </thead>
+            <tbody>
+                <t t-foreach="state.orderData" t-as="order" t-key="order.id">
+                    <tr>
+                        <t t-foreach="displayFieldKeys" t-as="field" t-key="field_index">
+                            <td><span t-esc="order[field]"></span></td>
+                        </t>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+
+    </t>
+
+</templates>

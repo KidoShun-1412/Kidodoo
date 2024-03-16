@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.actions.client" id="my_custom_form_client">
+        <field name="name">My Custom Order View</field>
+        <field name="tag">my_custom_form_view</field>
+        <field name="params" eval="{
+            'modelName': 'my.custom.order.dashboard',
+            'fields': [
+                'order_name',
+                'state',
+                'order_date',
+                'is_company',
+                'partner_id',
+            ]
+        }"/>
+    </record>
+
+    <menuitem
+        id="my_custom_form_menu"
+        name="My Custom Order View"
+        action="my_custom_form_client"
+        sequence="99"
+    />
+</odoo>

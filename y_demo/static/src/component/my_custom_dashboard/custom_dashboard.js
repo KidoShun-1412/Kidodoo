@@ -7,8 +7,12 @@ import { useService } from "@web/core/utils/hooks";
 
 export class DemoCustomDashboard extends Component {
     setup() {
-        this.modelName = this.props.action.params.modelName
-        this.fields = this.props.action.params.fields
+        this.modelName = 'demo.order.view'
+        this.fields = [
+            'state',
+            'partner_id',
+            'sale_person_ids'
+        ]
     }
 
     get propComponent() {
@@ -19,7 +23,11 @@ export class DemoCustomDashboard extends Component {
 DemoCustomDashboard.template = 'demo_custom_dashboard.DemoCustomDashboard'
 DemoCustomDashboard.components = { CustomForm }
 DemoCustomDashboard.props = {
-    params: Object,
+    action: Object,
+    actionId: { type: Number, optional: true },
+    className: String,
+    globalState: { type: Object, optional: true },
+    state: { type: Object, optional: true },
 };
 registry.category("actions").add("demo_custom_form_view", DemoCustomDashboard);
 
@@ -44,7 +52,7 @@ class DemoCustomScreen extends Component {
 
     async getSaleOrders() {
         return await this.orm.call(
-            'abstract.demo.order.view', 'get_sale_orders', [this.props.filter]
+            'demo.order.view', 'get_sale_orders', [this.props.filter]
         )
     }
 

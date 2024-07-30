@@ -3,14 +3,6 @@
     <record model="ir.actions.client" id="demo_custom_form_client">
         <field name="name">Demo Custom Order View</field>
         <field name="tag">demo_custom_form_view</field>
-        <field name="params" eval="{
-            'modelName': 'abstract.demo.order.view',
-            'fields': [
-                'state',
-                'partner_id',
-                'sale_person_ids'
-            ]
-        }"/>
     </record>
 
     <menuitem

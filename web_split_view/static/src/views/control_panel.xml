@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="web.ControlPanel" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('o_control_panel_main')]/div[hasclass('o_control_panel_navigation')]" position="attributes">
+            <attribute name="t-if">!env.isSplitForm</attribute>
+        </xpath>
+    </t>
+
+    <t t-inherit="web.Breadcrumb.Name" t-inherit-mode="extension" owl="1">
+        <xpath expr="//t[@t-out='breadcrumb.name']" position="attributes">
+            <attribute name="t-if">breadcrumb.name and env.config.viewType !== 'split'</attribute>
+        </xpath>
+
+        <xpath expr="//em[@t-else='']" position="replace">
+        </xpath>
+    </t>
+</templates>

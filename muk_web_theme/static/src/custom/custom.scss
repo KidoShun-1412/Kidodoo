@@ -1,0 +1,88 @@
+.o_base_settings_view .o_form_renderer {
+    .o_setting_container {
+        .settings_tab {
+            background: $o-brand-odoo;
+        }
+    }
+}
+
+.o_main_navbar {
+    background: $o-brand-odoo;
+    .o_nav_entry, .dropdown-toggle {
+        background: $o-brand-odoo;
+    }
+    .o_menu_sections {
+        .o_nav_entry, .dropdown-toggle {
+            background: $o-brand-odoo;
+        }
+        .dropdown.show {
+            background: $o-brand-odoo;
+        }
+    }
+}
+
+.btn-primary {
+    background: $o-brand-odoo;
+}
+
+.btn-secondary {
+    color: $o-brand-odoo;
+}
+
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary.focus {
+    color: $o-brand-odoo;
+}
+a {
+    color: $o-brand-odoo;
+}
+a:hover {
+    color: $o-brand-odoo;
+}
+
+.nav-link {
+    color: $o-brand-odoo;
+}
+.nav-link:hover {
+    color: $o-brand-odoo;
+}
+
+.o_form_view .o_form_uri > span:first-child {
+    color:$o-brand-odoo !important;
+}
+
+.btn.oe_stat_button > .o_stat_info .o_stat_value {
+    color: $o-brand-odoo !important;
+}
+
+.btn-fill-primary:hover, .btn-primary:hover, .btn-primary:hover,
+.btn-fill-primary:focus, .btn-primary:focus, .btn-primary:focus,
+.btn-fill-primary:active, .btn-primary:active, .btn-primary:active
+.btn-fill-primary:disabled, .btn-primary:disabled, .btn-primary:disabled
+{
+    color: #ffffff;
+}
+
+.btn-fill-primary, .btn-primary {
+    color: #ffffff;
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0 15px auto;
+}
+
+.breadcrumb {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0 0;
+    margin-bottom: 0;
+    list-style: none;
+    background-color: white;
+    font-size: large;
+    margin: 0 15px 0 15px;
+}

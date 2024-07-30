@@ -1,0 +1,19 @@
+// ------------------------------------------------------------------
+// Poppins fonts
+// ------------------------------------------------------------------
+$poppin-font-path: './Poppins';
+
+@mixin poppins-font($family, $type, $weight, $style) {
+    @font-face {
+        font-family: $family;
+        src: url('#{$poppin-font-path}/#{$family}/#{$family}-#{$type}.ttf') format('truetype');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+@mixin poppins-font-pair($family) {
+    @include poppins-font('#{$family}', 'Regular', 400, normal);
+}
+
+@include poppins-font-pair('Poppins');

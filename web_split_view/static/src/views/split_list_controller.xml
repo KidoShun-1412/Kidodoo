@@ -82,10 +82,10 @@
                     <div class="sv-splitter" t-ref="splitter" t-on-mousedown="onMountDownSplitter" t-on-mouseover="onMountOverSplitter" t-on-mouseout="onMountOutSplitter">
                         <div class="splitter-icon-section">
                             <div class="splitter-icon splitter-icon-left" t-ref="splitter_collapse_left" t-on-click="onClickSplitterCollapseLeft">
-                                <i class="fa fa-arrow-circle-left"/>
+                                <i class="oi oi-chevron-left"/>
                             </div>
                             <div class="splitter-icon splitter-icon-right" t-ref="splitter_collapse_right" t-on-click="onClickSplitterCollapseRight">
-                                <i class="fa fa-arrow-circle-right"/>
+                                <i class="oi oi-chevron-right"/>
                             </div>
                         </div>
                     </div>

@@ -10,7 +10,7 @@ export const splitView = {
     ...listView,
     type: "split",
     display_name: "Split",
-    icon: "oi oi-text-wrap",
+    icon: "oi oi-text-wrap fa-rotate-180",
     Controller: SplitListController,
     Renderer: SplitRenderer,
 

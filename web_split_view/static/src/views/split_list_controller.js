@@ -35,7 +35,7 @@ export class SplitListController extends ListController {
             else if (this.firstLoad && (this.model.root.records || []).length > 0) {
                 defaultResId = this.model.root.records[0].resId
             }
-            if (defaultResId) {
+            if (defaultResId && this.isViewBig) {
                 let defaultRecord = this.model.root.records.find(r => r.resId === defaultResId)
                 if (Object.keys(defaultRecord || {}).length > 0) {
                     this.openRecord(defaultRecord)
@@ -73,6 +73,10 @@ export class SplitListController extends ListController {
             this._onResizeWindow()
         });
 
+    }
+
+    get isViewBig() {
+        return !this.env.isSmall
     }
 
     getForceSplitFormArch() {
@@ -116,7 +120,11 @@ export class SplitListController extends ListController {
 
     _setSizeSplitLeft(size) {
         this.splitListRef.el.style.flex = "unset";
-        this.splitListRef.el.style.width = `${size}px`
+        let sizeVal = size
+        if (!isNaN(size)) {
+            sizeVal = `${sizeVal}px`
+        }
+        this.splitListRef.el.style.width = sizeVal
     }
 
     _setDisplaySplitter(display) {
@@ -212,15 +220,30 @@ export class SplitListController extends ListController {
         const web_navbar_height = $('.o_web_client > .o_navbar').outerHeight()
         const windowHeight = $(window).height()
         const height = windowHeight - control_panel_height - web_navbar_height - tolerance
-        this.splitFormRef.el.style.height = `${height}px`
+        
+        if (this.isViewBig) {
+            this.splitFormRef.el.style.height = `${height}px`
+            this.splitFormRef.el.style.display = 'block'
+            this.splitterRef.el.style.display = 'block'
+        }
+        else {
+            this._setSizeSplitLeft('100%')
+            this.splitFormRef.el.style.display = 'none'
+            this.splitterRef.el.style.display = 'none'
+        }
         this.splitListRef.el.style.height = `${height}px`
     }
 
     async openRecord(record) {
-        this.resetSelectedRecords()
-        this.triggerReloadSplitForm(record.resId)
-        this.splitViewService._updateLastResId(record.resId)
-        record.svSelected = true
+        if (this.isViewBig) {
+            this.resetSelectedRecords()
+            this.triggerReloadSplitForm(record.resId)
+            this.splitViewService._updateLastResId(record.resId)
+            record.svSelected = true
+        }
+        else {
+            await super.openRecord(...arguments)
+        }
     }
 
     triggerReloadSplitForm(resId) {

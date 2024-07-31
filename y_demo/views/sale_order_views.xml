@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="orders_split_form_view" model="ir.ui.view">
+        <field name="name">sale.orders.form.split</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" string="Number"/>
+                        <field name="company_id"/>
+                        <field name="partner_id"/>
+                        <field name="date_order"/>
+                        <field name="expected_date"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="product_template_split_view" model="ir.ui.view">
+        <field name="name">product.template.product.split</field>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <split />
+        </field>
+    </record>
+
+    <record id="orders_split_view" model="ir.ui.view">
+        <field name="name">sale.orders.split</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <!-- tree_view_id="%(sale.view_quotation_tree_with_onboarding)d" -->
+            <!-- form_view_id="%(sale.view_order_form)d" -->
+            <split />
+        </field>
+    </record>
+
+    <record id="sale.product_template_action" model="ir.actions.act_window">
+        <field name="view_mode">kanban,tree,form,activity,split</field>
+    </record>
+
+
+    <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+        <field name="view_mode">tree,split,kanban,form,calendar,pivot,graph,activity</field>
+    </record>
+</odoo>

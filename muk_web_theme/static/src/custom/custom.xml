@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="muk_web_theme.FormStatusIndicator" t-inherit="web.FormStatusIndicator" t-inherit-mode="extension" owl="1">
+        <xpath expr="//i[contains(@class, 'fa-cloud-upload')]" position="after">
+            <span class="muk_button_title">Save</span>
+        </xpath>
+        <xpath expr="//i[contains(@class, 'fa-undo')]" position="after">
+            <span class="muk_button_title">Undo</span>
+        </xpath>        
+    </t>  
+</templates>

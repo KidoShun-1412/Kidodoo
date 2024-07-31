@@ -14,7 +14,7 @@ import { createPropertyActiveField} from "@web/model/relational_model/utils";
 class _CustomForm extends Component {
     static template = "custom_form._CustomForm";
     static components = { Field };
-    static props = ["fields", "model"];
+    static props = ["fields", "model", "component"];
 
     setup() {
         this.model = useState(useModel(RelationalModel, this.modelParams, {}));
@@ -129,5 +129,6 @@ CustomForm.template = 'custom_form.CustomForm'
 CustomForm.components = { _CustomForm };
 CustomForm.props = {
     modelName: String,
-    fields: Array
+    fields: Array,
+    component: Function
 };

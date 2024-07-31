@@ -1,0 +1,98 @@
+.o_split_view {
+    .o_content {
+        z-index: 1;
+        .o_control_panel {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .split-view-wrapper {
+
+            .split-list {
+                flex: 2 1 0%;
+                overflow: auto;
+                transition: flex 0.25s linear 0s;
+
+                -webkit-user-select: none!important;
+                user-select: none!important;
+
+                .o_list_renderer {
+                    &::-webkit-scrollbar {
+                        height: 12px;
+                        width: 0px;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        background-color: $o-brand-secondary;
+                        border-radius: 8px;
+                    }
+                    .o_list_table {
+                        thead {
+                            tr {
+                                th {
+                                    padding-block: 8px;
+                                }
+                            }
+                        }
+
+                        .o_list_footer {
+                            position: sticky;
+                            bottom: -0.5px;
+                            background-color: var(--ListRenderer-thead-bg-color);
+                        }
+                    }
+                }
+
+            }
+            .sv-splitter {
+                flex: 0 0 0.5rem;
+                cursor: col-resize;
+                position: relative;
+                background-color: $o-brand-secondary;
+
+                .splitter-icon-section {
+                    cursor: pointer;
+                    position: absolute;
+                    display: flex;
+                    top: 40%;
+                    right: -14px;
+                    z-index: 10;
+
+                    .splitter-icon {
+                        display: none;
+                        width: 20px;
+                        height: 40px;
+                        line-height: 40px;
+                        text-align: center;
+                        color: white;
+                        background-color: $o-brand-secondary;
+
+                        &-left {
+                            border-top-left-radius: 20px;
+                            border-bottom-left-radius: 20px;
+                        }
+                        &-right {
+                            border-top-right-radius: 20px;
+                            border-bottom-right-radius: 20px;
+                        }
+
+                        &:hover {
+                            color:$o-brand-odoo;
+                        }
+                    }
+                }
+            }
+            .split-form {
+                min-width: 50%;
+                padding-left: 4px;
+                flex: 2 1 0%;
+                transition: width 0.25s linear 0s;
+
+                .o_form_renderer {
+                    .o_form_sheet_bg {
+                        padding-inline: 0;
+                    }
+                }
+            }
+        }
+    }
+}
